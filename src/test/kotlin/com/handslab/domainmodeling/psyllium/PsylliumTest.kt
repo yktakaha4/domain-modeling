@@ -9,60 +9,60 @@ class PsylliumTest {
 
     @Test
     fun testNothingToRed() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOn()
-        assertThat(psylium.status, instanceOf(LightOnStatus::class.java))
+        psyllium.lightOn()
+        assertThat(psyllium.status, instanceOf(LightOnStatus::class.java))
     }
 
     @Test
     fun testRedToBlue() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOn()
-        psylium.lightOn()
+        psyllium.lightOn()
+        psyllium.lightOn()
 
-        assertThat(psylium.status, equalTo(Status.BLUE))
+        assertThat(psyllium.status, equalTo(Status.BLUE))
     }
 
     @Test
     fun testBlueToRed() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOn()
-        psylium.lightOn()
-        psylium.lightOn()
+        psyllium.lightOn()
+        psyllium.lightOn()
+        psyllium.lightOn()
 
-        assertThat(psylium.status, equalTo(Status.RED))
+        assertThat(psyllium.status, equalTo(Status.RED))
     }
 
     @Test
     fun testRedToNothing() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOn()
-        psylium.lightOff()
+        psyllium.lightOn()
+        psyllium.lightOff()
 
-        assertThat(psylium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, equalTo(Status.NOTHING))
     }
 
     @Test
     fun testBlueToNothing() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOn()
-        psylium.lightOn()
-        psylium.lightOff()
+        psyllium.lightOn()
+        psyllium.lightOn()
+        psyllium.lightOff()
 
-        assertThat(psylium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, equalTo(Status.NOTHING))
     }
 
     @Test
     fun testNothingToNothing() {
-        val psylium = Psyllium()
+        val psyllium = Psyllium()
 
-        psylium.lightOff()
+        psyllium.lightOff()
 
-        assertThat(psylium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, equalTo(Status.NOTHING))
     }
 }
