@@ -12,7 +12,9 @@ class PsylliumTest {
         val psyllium = Psyllium()
 
         psyllium.lightOn()
-        assertThat(psyllium.status, instanceOf(LightOnStatus::class.java))
+
+        val status = psyllium.status as LightOnStatus
+        assertThat(status.color, equalTo(Color.RED))
     }
 
     @Test
@@ -22,7 +24,8 @@ class PsylliumTest {
         psyllium.lightOn()
         psyllium.lightOn()
 
-        assertThat(psyllium.status, equalTo(Status.BLUE))
+        val status = psyllium.status as LightOnStatus
+        assertThat(status.color, equalTo(Color.BLUE))
     }
 
     @Test
@@ -33,7 +36,8 @@ class PsylliumTest {
         psyllium.lightOn()
         psyllium.lightOn()
 
-        assertThat(psyllium.status, equalTo(Status.RED))
+        val status = psyllium.status as LightOnStatus
+        assertThat(status.color, equalTo(Color.RED))
     }
 
     @Test
@@ -43,7 +47,7 @@ class PsylliumTest {
         psyllium.lightOn()
         psyllium.lightOff()
 
-        assertThat(psyllium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, instanceOf(LightOffStatus::class.java))
     }
 
     @Test
@@ -54,7 +58,7 @@ class PsylliumTest {
         psyllium.lightOn()
         psyllium.lightOff()
 
-        assertThat(psyllium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, instanceOf(LightOffStatus::class.java))
     }
 
     @Test
@@ -63,6 +67,6 @@ class PsylliumTest {
 
         psyllium.lightOff()
 
-        assertThat(psyllium.status, equalTo(Status.NOTHING))
+        assertThat(psyllium.status, instanceOf(LightOffStatus::class.java))
     }
 }
